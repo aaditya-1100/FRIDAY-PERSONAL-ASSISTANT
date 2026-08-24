@@ -1,37 +1,37 @@
-# FRIDAY AI OS
+# ATOM
 
 > ## An Agentic AI Operating Layer for Real-World Computer Interaction
 >
-> FRIDAY is an experimental AI agent platform that connects language models to a real Windows environment through **perception, stateful reasoning, tool orchestration, computer control, and persistent memory**.
+> ATOM is an experimental AI agent platform that connects language models to a real Windows environment through **perception, stateful reasoning, tool orchestration, computer control, and persistent memory**.
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![React](https://img.shields.io/badge/React-TypeScript-61DAFB?logo=react&logoColor=111)](https://react.dev/)
 [![Electron](https://img.shields.io/badge/Electron-Desktop-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
-[![Status](https://img.shields.io/badge/status-active%20development-orange)](#project-status)
+[![Status](https://img.shields.io/badge/status-stable%20beta-orange)](#project-status)
 
 ## The idea
 
 Most AI interfaces stop at generating an answer.
 
-FRIDAY explores the next layer: **how an AI system can move from understanding an instruction to operating inside a real environment.**
+ATOM explores the next layer: **how an AI system can move from understanding an instruction to operating inside a real environment.**
 
 The system is built around a continuous control loop:
 
 **Perceive → Interpret → Plan → Delegate → Execute → Synthesize → Reflect**
 
-A language model provides reasoning capability, but FRIDAY is the surrounding system that gives that reasoning access to a computer.
+A language model provides reasoning capability, but ATOM is the surrounding system that gives that reasoning access to a computer.
 
 ## Interaction model
 
-FRIDAY is designed to stay **out of the way of the user's work**.
+ATOM is designed to stay **out of the way of the user's work**.
 
-It does not open a full assistant window, live in the taskbar, or use a wake word. Instead, it appears as a narrow, pill-shaped **floating island at the top-center of the screen**, directly beneath the camera/notch area on a modern laptop. It acts as a compact status and interaction surface rather than demanding focus.
+It appears as a narrow, pill-shaped **floating island at the top-center of the screen**, directly beneath the camera/notch area on a modern laptop. It acts as a compact status and interaction surface rather than demanding focus.
 
 ### Push-to-talk, by design
 
-FRIDAY uses a deliberate **walkie-talkie interaction model**:
+ATOM uses a deliberate **walkie-talkie interaction model**:
 
-**Hold `Ctrl + Alt + Z` → speak → release → FRIDAY processes the turn.**
+**Hold `Ctrl + Alt + Z` → speak → release → ATOM processes the turn.**
 
 The microphone is only active while the hotkey is held. There is no passive background listening in the normal interaction flow.
 
@@ -39,7 +39,7 @@ This design gives the user explicit control over microphone activation and avoid
 
 ### What happens during a turn
 
-When the hotkey is held, the floating island indicates that FRIDAY is actively listening. When the key is released, the system moves through its processing stages and returns to idle after responding.
+When the hotkey is held, the floating island indicates that ATOM is actively listening. When the key is released, the system moves through its processing stages and returns to idle after responding.
 
 The interaction pipeline is:
 
@@ -53,12 +53,11 @@ The interaction pipeline is:
 
 The UI is intentionally minimal: no modal workflow, no full-screen takeover, and no requirement to leave the application currently in use.
 
-## What FRIDAY can do from that interface
+## What ATOM can do from that interface
 
-From a single deliberate push-to-talk interaction, FRIDAY can:
+From a single deliberate push-to-talk interaction, ATOM can:
 
 - answer questions using live web retrieval or stored context
-- control supported media workflows such as Spotify
 - capture and analyze screenshots
 - read and locate text on the current screen
 - open applications and interact with Windows resources
@@ -66,11 +65,11 @@ From a single deliberate push-to-talk interaction, FRIDAY can:
 - retrieve relevant information from semantic and episodic memory
 - surface passive/proactive information through the floating island without turning every event into a spoken interruption
 
-FRIDAY is designed around the idea that **the computer itself is part of the environment the agent observes and acts within**.
+ATOM is designed around the idea that **the computer itself is part of the environment the agent observes and acts within**.
 
-## What FRIDAY actually is
+## What ATOM actually is
 
-FRIDAY is not designed as a single monolithic chatbot. It is a small **agent runtime** with explicit state, asynchronous event routing, specialized agents, tool permissions, and memory services.
+ATOM is not designed as a single monolithic chatbot. It is a small **agent runtime** with explicit state, asynchronous event routing, specialized agents, tool permissions, and memory services.
 
 At the center is a cognitive state machine with explicit transitions such as:
 
@@ -142,7 +141,7 @@ Interruptions and failures are modeled explicitly rather than treated as ordinar
 
 ### 1. Cognitive state and control flow
 
-FRIDAY uses an explicit state machine instead of a single request/response function. Each transition is validated, logged, associated with a correlation ID, and published through the event system.
+ATOM uses an explicit state machine instead of a single request/response function. Each transition is validated, logged, associated with a correlation ID, and published through the event system.
 
 This gives the system a concrete representation of **where an interaction is, what it is doing, and how it can recover or be interrupted**.
 
@@ -154,7 +153,7 @@ The bus supports wildcard subscriptions and concurrent delivery, allowing the co
 
 ### 3. Specialized agents
 
-FRIDAY currently separates responsibilities into seven agents:
+ATOM currently separates responsibilities into seven agents:
 
 - **PC** — Windows, applications, files, system operations
 - **Web** — browser interaction and web workflows
@@ -168,7 +167,7 @@ Each agent follows a common lifecycle, declares capabilities, processes dispatch
 
 ### 4. Perception and computer vision
 
-FRIDAY can capture the current screen and turn it into machine-usable context.
+ATOM can capture the current screen and turn it into machine-usable context.
 
 Its vision layer supports operations such as:
 
@@ -180,11 +179,11 @@ Its vision layer supports operations such as:
 - visual understanding
 - locating UI targets for computer interaction
 
-This makes the computer an environment FRIDAY can **observe**, not merely a set of APIs it can call.
+This makes the computer an environment ATOM can **observe**, not merely a set of APIs it can call.
 
 ### 5. Persistent memory
 
-FRIDAY's memory is more than conversation history.
+ATOM's memory is more than conversation history.
 
 The architecture combines working/session context with semantic and episodic retrieval. Semantic memory uses embeddings with local Qdrant storage, while the cognitive layer can retrieve relevant memory under a latency budget before planning a response or action.
 
@@ -194,7 +193,7 @@ The practical goal is simple: **do not force every interaction to start from zer
 
 Giving an AI access to a computer requires more than tool availability.
 
-FRIDAY includes agent trust levels and a permission engine that maps tools to permission requirements. Sensitive operations can trigger a human-confirmation flow, while denied operations are audit-logged rather than silently executed.
+ATOM includes agent trust levels and a permission engine that maps tools to permission requirements. Sensitive operations can trigger a human-confirmation flow, while denied operations are audit-logged rather than silently executed.
 
 The intended model is:
 
@@ -239,7 +238,7 @@ This context is then supplied to the reasoning layer with explicit budget manage
 
 ### Intelligence
 
-- Groq-hosted LLaMA 3.3 for LLM inference
+- Groq-hosted model for LLM inference
 - Faster-Whisper for speech recognition
 - Edge-TTS for speech synthesis
 - fastembed with `BAAI/bge-small-en-v1.5`
@@ -264,7 +263,7 @@ This context is then supplied to the reasoning layer with explicit budget manage
 
 ## Why the interface is deliberately minimal
 
-FRIDAY is designed to sit **alongside work, not on top of it**.
+ATOM is designed to sit **alongside work, not on top of it**.
 
 The floating island occupies a small strip of otherwise unused screen space. Push-to-talk makes activation explicit. Voice input and voice output keep the user's hands available for whatever they are already doing.
 
@@ -272,7 +271,7 @@ The design goal is not to make the assistant the center of attention. It is to m
 
 ## Reliability engineering
 
-FRIDAY has gone through multiple iterations focused less on adding features and more on making the runtime behave predictably.
+ATOM has gone through multiple iterations focused less on adding features and more on making the runtime behave predictably.
 
 Recent work includes:
 
@@ -287,22 +286,22 @@ Recent work includes:
 
 ## Performance snapshot
 
-The repository's documented R9.0 lean-build measurements report:
+The repository's documented lean-build measurements report:
 
 | Metric | Measurement |
 |---|---:|
 | Boot import time | ~2.0 s |
 | RAM at idle boot | ~140 MB |
 | RAM after first query | ~325 MB |
-| Regression suite | 75 tests / 0 failing |
+| Regression suite | Development measurement |
 
 These are development measurements from the project, not independent benchmarks or production guarantees.
 
 ## Project status
 
-**Active development / experimental public release.**
+**Stable beta / experimental public release.**
 
-FRIDAY is intentionally a systems experiment rather than a finished commercial product. The repository is used to explore the engineering problems around agentic computer interaction: control flow, tool orchestration, perception, memory, permissions, latency, reliability, and recovery.
+ATOM is intentionally a systems project exploring the engineering problems around agentic computer interaction: control flow, tool orchestration, perception, memory, permissions, latency, reliability, and recovery.
 
 ## What I am exploring
 
@@ -310,7 +309,7 @@ The central question behind the project is:
 
 > **What software architecture is needed for an AI system to reliably act in a real computer environment rather than only generate text?**
 
-That question naturally connects FRIDAY to broader areas of AI engineering:
+That question naturally connects ATOM to broader areas of AI engineering:
 
 - agentic systems
 - human-computer interaction
@@ -323,19 +322,13 @@ That question naturally connects FRIDAY to broader areas of AI engineering:
 ## Repository structure
 
 ```text
-FRIDAY-AI-OS/
+ATOM/
 ├── backend/
-│   ├── friday/
-│   │   ├── agents/          # Specialized execution agents
-│   │   ├── core/            # Cognitive state + event system
-│   │   ├── memory/          # Context and semantic retrieval
-│   │   ├── security/        # Capability + permission controls
-│   │   ├── vision/          # Screen perception
-│   │   └── system/          # Environment and OS integration
-│   ├── tests/               # Regression and behavior tests
+│   ├── friday/             # Internal legacy namespace retained for compatibility
+│   ├── tests/              # Regression and behavior tests
 │   └── requirements.txt
-├── frontend/                # React + Electron interface
-├── health_check.py          # Runtime health checks
+├── frontend/               # React + Electron interface
+├── health_check.py         # Runtime health checks
 ├── determinism_audit.py
 ├── production_regression_suite_spec.md
 ├── ROUTING_MATRIX.md
@@ -351,17 +344,17 @@ FRIDAY-AI-OS/
 - Python 3.11+
 - Node.js 18+
 - Tesseract OCR
-- API keys for the optional cloud services you enable
+- A supported AI provider API key
 
 ### Backend
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate
+venv\Scripts\activate
 pip install -r backend/requirements.txt
 ```
 
-Create `backend/.env` using the provided example configuration.
+Create your local environment configuration using the provided example configuration.
 
 Start the backend:
 
@@ -378,21 +371,11 @@ npm install
 npm run dev
 ```
 
-## Roadmap
-
-The next phase is focused on **reliability, evaluation, and deeper environmental understanding** rather than simply adding more commands.
-
-- stronger action verification and recovery
-- more robust screen/vision interaction
-- better uncertainty handling around tool results and memory
-- improved observability and evaluation harnesses
-- cleaner desktop packaging and deployment
-
 ## Author
 
 **Aaditya Pratap Chauhan**
 
-FRIDAY is a long-running personal engineering project exploring the boundary between language models and real-world computer interaction.
+ATOM is a long-running personal engineering project exploring the boundary between language models and real-world computer interaction.
 
 ## License
 
